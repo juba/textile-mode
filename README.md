@@ -16,13 +16,13 @@ http://hobix.com/textile/
 
 Installation of Textile-mode is really nothing original. Put the file in a directory into your load-path, and then add the following into your .emacs :
 
-```
+```{elisp}
 (require 'textile-mode)
 ```
 
 Then you can toggle manualy the major mode with `M-x` `textile-mode` or you can associate it with a file extension with :
 
-```
+```{elisp}
 (add-to-list 'auto-mode-alist '("\\.textile\\'" . textile-mode))
 ```
 

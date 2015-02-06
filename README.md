@@ -3,11 +3,12 @@ An emacs major mode for Textile markup language editing.
 
 ## What is textile ?
 
-Textile is a markup language created by the author of TextPattern. It is used by some Content Management System, wikis, and there are libraries to convert Textile into HTML for Ruby, Python or PHP.
+Textile is a markup language created by the author of *TextPattern*. It is used by some content management systems, wikis, and there are libraries to convert Textile into HTML for Ruby, Python or PHP.
 
 More information on the markup can be found here :
 
 http://www.textism.com/tools/textile/
+
 http://hobix.com/textile/
 
 
@@ -19,7 +20,7 @@ Installation of Textile-mode is really nothing original. Put the file in a direc
 (require 'textile-mode)
 ```
 
-Then you can toggle manualy the major mode with M-x textile-mode or you can associate it with a file extension with :
+Then you can toggle manualy the major mode with `M-x` `textile-mode` or you can associate it with a file extension with :
 
 ```
 (add-to-list 'auto-mode-alist '("\\.textile\\'" . textile-mode))

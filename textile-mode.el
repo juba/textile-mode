@@ -220,7 +220,7 @@ non-matching parentheses"
        `(,(textile-link-matcher) 0 'textile-link-face t t)
 
         ;; <pre> blocks
-       '("<pre>\\(.\\|\n\\)*?</pre>" 0 'textile-pre-face t t) 
+       '("<pre>\\(.\\|\n\\)*?</pre>\n?" 0 'textile-pre-face t t)
        ;; <code> blocks
        '("<code>\\(.\\|\n\\)*?</code>" 0 'textile-code-face t t))
       "Keywords/Regexp for fontlocking of textile-mode")

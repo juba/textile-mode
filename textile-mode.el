@@ -186,7 +186,7 @@ non-matching parentheses"
        ;; citation
        `(,(textile-inline-markup-matcher "\\?\\?") 1 'textile-citation-face prepend t)
        ;; code
-       `(,(textile-inline-markup-matcher "@") 1 'textile-code-face prepend t)
+       `(,(textile-inline-markup-matcher "@") 1 'textile-inline-code-face prepend t)
        ;; deletion
        `(,(textile-inline-markup-matcher "-") 1 'textile-deleted-face prepend t)
        ;; insertion
@@ -385,6 +385,11 @@ non-matching parentheses"
 (defface textile-code-face
   '((t (:foreground "yellow")))
   "Face used to highlight <code> blocks."
+  :group 'textile-faces)
+
+(defface textile-inline-code-face
+  '((t (:inherit textile-code-face)))
+  "Face used to highlight inline code blocks."
   :group 'textile-faces)
 
 (defface textile-table-face

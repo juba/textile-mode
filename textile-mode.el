@@ -135,12 +135,14 @@ non-matching parentheses"
 (defun textile-link-matcher ()
   "Return the matcher regexp for a link"
   (concat
-   "\\(?:"
-   "\\(?:" "\".*?\"" "\\|" "\\[.*?\\]" "\\)?"
-   textile-url-regexp
-   "\\|"
-   "\".*?\":[^ \n\t]+"
-   "\\)"))
+   "\\(\".*?\"\\):"
+   "\\(?:" "\\(" textile-url-regexp "\\)" "\\|" "\\([^ \n\t]+\\)" "\\)"))
+
+(defun textile-link-alias-matcher ()
+  "Return the matcher regexp for a link ali"
+  (concat
+   "\\(\\[.*?\\]\\)"
+   "\\(" textile-url-regexp "\\)"))
 
 (defun textile-image-matcher ()
   "Return the matcher regexp for an image link"
@@ -218,7 +220,14 @@ non-matching parentheses"
        `(,(textile-table-matcher) 0 'textile-table-face t t)
 
        ;; links
-       `(,(textile-link-matcher) 0 'textile-link-face t t)
+       `(,(textile-link-matcher)
+         (1 'textile-link-face)
+         (2 'textile-url-face t t)
+         (3 'textile-lang-face t t))
+       `(,(textile-link-alias-matcher)
+         (1 'textile-lang-face)
+         (2 'textile-url-face))
+       `(,textile-url-regexp 0 'textile-link-face)
 
         ;; <pre> blocks
        '("<pre>\\(.\\|\n\\)*?</pre>\n?" 0 'textile-pre-face t t)
@@ -385,6 +394,11 @@ non-matching parentheses"
 
 (defface textile-link-face
   '((t (:foreground "blue")))
+  "Face used to highlight links."
+  :group 'textile-faces)
+
+(defface textile-url-face
+  '((t (:inherit textile-link-face)))
   "Face used to highlight links."
   :group 'textile-faces)
 

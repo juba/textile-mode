@@ -232,9 +232,9 @@ non-matching parentheses"
        `(,textile-url-regexp 0 'textile-link-face)
 
         ;; <pre> blocks
-       '("<pre>\\(.\\|\n\\)*?</pre>\n?" 0 'textile-pre-face t t)
+       '("<pre>\\(.\\|\n\\)*?</pre>\n?" 0 'textile-pre-face t)
        ;; <code> blocks
-       '("<code>\\(.\\|\n\\)*?</code>" 0 'textile-code-face t t))
+       '("<code>\\(.\\|\n\\)*?</code>\n?" 0 'textile-code-face t))
       "Keywords/Regexp for fontlocking of textile-mode")
 
 

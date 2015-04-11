@@ -171,7 +171,7 @@ non-matching parentheses"
        ;; footnotes
        `(,(textile-block-matcher "fn[0-9]+") 1 'textile-footnote-face t t)
        ;; footnote marks
-       '("\\w\\([[0-9]+]\\)" 1 'textile-footnotemark-face prepend t)
+       '("\\(?:\\w\\|\\s.\\)\\(\\[[0-9]+\\]\\)" 1 'textile-footnotemark-face prepend t)
        ;; acronyms
        `(,(textile-acronym-matcher) 0 'textile-acronym-face t t)
 

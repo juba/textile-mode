@@ -57,19 +57,19 @@ non-matching parentheses"
    "\\)"))
 
 
-(setq textile-attributes
+(defvar textile-attributes
       '("{[^}]*}" "([^)]*)" "\\[[^]]*\\]"))
 
-(setq textile-blocks
+(defvar textile-blocks
       '("^h1" "^h2" "^h3" "^h4" "^h5" "^h6" "^p" "^bq" "^fn[0-9]+" "^#+ " "^\\*+ " "^table"))
 
-(setq textile-inline-markup
+(defvar textile-inline-markup
       '("\\*" "\\*\\*" "_" "__" "\\?\\?" "@" "-" "\\+" "^" "~" "%"))
 
-(setq textile-alignments
+(defvar textile-alignments
       '( "<>" "<" ">" "=" "(+" ")+"))
 
-(setq textile-table-alignments
+(defvar textile-table-alignments
       '( "<>" "<" ">" "=" "_" "\\^" "~" "\\\\[0-9]+" "/[0-9]+"))
 
 ; from gnus-button-url-regexp

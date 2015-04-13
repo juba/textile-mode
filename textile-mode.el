@@ -111,7 +111,9 @@ non-matching parentheses"
   (concat
    "^\\(" bullet "\\)"
    (textile-re-concat textile-alignments) "*"
-   (textile-re-concat textile-attributes) "*"))
+   (textile-re-concat textile-attributes) "*"
+   ;; list items must be preceeded by a space
+   " "))
 
 (defun textile-alignments-matcher ()
   "Return the matcher regexp for an alignments or indentation"

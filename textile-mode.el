@@ -236,8 +236,9 @@ non-matching parentheses"
       "Keywords/Regexp for fontlocking of textile-mode")
 
 
-;; (defvar textile-imenu-generic-expression
-;; ...)
+(defvar textile-imenu-generic-expression
+  `(("Headings" "^h[[:digit:]]\\..*?\\([[:ascii:]].*?\\)$" 1))
+  "Expressions for generating imenu entries.")
 
 ;; (defvar textile-outline-regexp
 ;;   ...)
@@ -246,7 +247,8 @@ non-matching parentheses"
 (define-derived-mode textile-mode text-mode "Textile"
   "A major mode for editing textile files."
   (set (make-local-variable 'font-lock-defaults) '(textile-font-lock-keywords t))
-  (set (make-local-variable 'font-lock-multiline) 'undecided))
+  (set (make-local-variable 'font-lock-multiline) 'undecided)
+  (set (make-local-variable 'imenu-generic-expression) textile-imenu-generic-expression))
 
 
 

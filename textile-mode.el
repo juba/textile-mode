@@ -246,6 +246,7 @@ non-matching parentheses"
 ;;   ...)
 
 
+;;;###autoload
 (define-derived-mode textile-mode text-mode "Textile"
   "A major mode for editing textile files."
   (set (make-local-variable 'font-lock-defaults) '(textile-font-lock-keywords t))

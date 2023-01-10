@@ -24,7 +24,7 @@
 
 ;;; Commentary:
 
-;; An emacs major mode for Textile markup language 
+;; An emacs major mode for Textile markup language
 ;; (https://textile-lang.com/) editing.
 
 ;;; Known bugs or limitations:
@@ -185,7 +185,7 @@ non-matching parentheses"
        ;; citation
        `(,(textile-inline-markup-matcher "\\?\\?") 1 'textile-citation-face prepend t)
        ;; code
-       `(,(textile-inline-markup-matcher "@") 1 'textile-inline-code-face prepend t)
+       `(,(textile-inline-markup-matcher "@") 1 'textile-inline-code-face t t)
        ;; deletion
        `(,(textile-inline-markup-matcher "-") 1 'textile-deleted-face prepend t)
        ;; insertion

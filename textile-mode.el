@@ -103,6 +103,15 @@ non-matching parentheses"
    markup
    "\\)\\W"))
 
+(defun textile-inline-code-matcher (markup)
+  "Return the matcher regexp for an inline code"
+  (concat
+   "\\W\\("
+   markup
+   ".+?"
+   markup
+   "\\)\\W"))
+
 (defun textile-list-bullet-matcher (bullet)
   "Return the matcher regexp for a list bullet"
   (concat
@@ -185,7 +194,7 @@ non-matching parentheses"
        ;; citation
        `(,(textile-inline-markup-matcher "\\?\\?") 1 'textile-citation-face prepend t)
        ;; code
-       `(,(textile-inline-markup-matcher "@") 1 'textile-inline-code-face t t)
+       `(,(textile-inline-code-matcher "@") 1 'textile-inline-code-face t t)
        ;; deletion
        `(,(textile-inline-markup-matcher "-") 1 'textile-deleted-face prepend t)
        ;; insertion

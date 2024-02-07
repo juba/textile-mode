@@ -1,4 +1,4 @@
-;;; textile-mode.el --- Textile markup editing major mode
+;;; textile-mode.el --- Textile markup editing major mode -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2006 Free Software Foundation, Inc.
 

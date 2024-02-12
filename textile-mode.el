@@ -103,11 +103,13 @@ non-matching parentheses"
 (defun textile-inline-markup-matcher (markup)
   "Return the matcher regexp for an inline markup"
   (concat
-   "\\W\\("
+   textile-re-nonword-start
+   "\\("
    markup
    "\\(?:\\w\\|\\w.*?\\w\\|[[{(].*?\\w\\)"
    markup
-   "\\)\\W"))
+   "\\)"
+   textile-re-nonword-end))
 
 (defun textile-inline-code-matcher (markup)
   "Return the matcher regexp for an inline code"

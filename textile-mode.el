@@ -69,6 +69,12 @@ non-matching parentheses"
 (defvar textile-table-alignments
       '( "<>" "<" ">" "=" "_" "\\^" "~" "\\\\[0-9]+" "/[0-9]+"))
 
+(defconst textile-re-nonword-start "\\(?:^\\|\\W\\)"
+  "Non-word character or start of line")
+
+(defconst textile-re-nonword-end "\\(?:\\W\\|$\\)"
+  "Non-word character or end of line")
+
 ; from gnus-button-url-regexp
 (defvar textile-url-regexp "\\(?:\\b\\(?:\\(?:www\\.\\|\\(?:s?https?\\|ftp\\|file\\|gopher\\|nntp\\|news\\|telnet\\|wais\\|mailto\\|info\\):\\)\\(?://[-a-z0-9_.]+:[0-9]*\\)?[-a-z0-9_=!?#$@~%&*+\\/:;.,[:word:]]+[-a-z0-9_=#$@~%&*+\\/[:word:]]\\)\\)"
   "Regexp matching a URL.")
@@ -97,20 +103,24 @@ non-matching parentheses"
 (defun textile-inline-markup-matcher (markup)
   "Return the matcher regexp for an inline markup"
   (concat
-   "\\W\\("
+   textile-re-nonword-start
+   "\\("
    markup
    "\\(?:\\w\\|\\w.*?\\w\\|[[{(].*?\\w\\)"
    markup
-   "\\)\\W"))
+   "\\)"
+   textile-re-nonword-end))
 
 (defun textile-inline-code-matcher (markup)
   "Return the matcher regexp for an inline code"
   (concat
-   "\\W\\("
+   textile-re-nonword-start
+   "\\("
    markup
    ".+?"
    markup
-   "\\)\\W"))
+   "\\)"
+   textile-re-nonword-end))
 
 (defun textile-list-bullet-matcher (bullet)
   "Return the matcher regexp for a list bullet"
